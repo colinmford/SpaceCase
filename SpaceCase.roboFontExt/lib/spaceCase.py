@@ -1,5 +1,4 @@
-# spaceCase - v2 - jackson@okaytype.com
-# to do: change button label to show next state: "OK" -> "Ok" -> "ok"
+# spaceCase - v3 - jackson@okaytype.com
 #
 
 from mojo.UI import CurrentSpaceCenter
@@ -27,13 +26,20 @@ class AddButtonToSpaceCenter:
         sp.myButton = Button((-134, 10, 33, 22), "OK", callback=self.spaceCase, sizeStyle="small")
     
     def spaceCase(self, sender):
-
-        sc = CurrentSpaceCenter().getRaw()
         
-        if sc.isupper(): CurrentSpaceCenter().setRaw(sc.title())
-        elif sc.istitle(): CurrentSpaceCenter().setRaw(sc.lower())
-        elif sc.islower(): CurrentSpaceCenter().setRaw(sc.upper())
-        else: CurrentSpaceCenter().setRaw(sc.upper())
- 
-
+        sp = CurrentSpaceCenter()
+        sc = sp.getRaw()
+        
+        if sc.isupper(): self.setCase(sp, 'title')
+        elif sc.istitle(): self.setCase(sp, 'lower')
+        elif sc.islower(): self.setCase(sp, 'upper')
+        else: self.setCase(sp, 'upper')
+        
+    def setCase(self, sp, case):
+        sc = sp.getRaw()
+        title = sp.myButton.getTitle()
+        
+        sp.setRaw(getattr(sc, case)())
+        sp.myButton.setTitle(getattr(title, case)())
+        
 AddButtonToSpaceCenter()
