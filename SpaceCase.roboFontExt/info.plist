@@ -20,5 +20,9 @@
 	<real>1399138760.5904241</real>
 	<key>version</key>
 	<string>1.0</string>
+	<key>repository</key>
+	<string>okay-type/SpaceCase</string>
+	<key>extensionPath</key>
+	<string>SpaceCase.roboFontExt</string>
 </dict>
 </plist>
