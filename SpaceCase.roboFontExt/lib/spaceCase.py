@@ -15,7 +15,7 @@ class AddButtonToSpaceCenter:
 
         sp = CurrentSpaceCenter()
 
-        print dir(sp.top)
+        #print dir(sp.top)
 
         l, t, w, h = sp.top.glyphLineInput.getPosSize()
         sp.top.glyphLineInput.setPosSize((l, t, w - 37, h))
