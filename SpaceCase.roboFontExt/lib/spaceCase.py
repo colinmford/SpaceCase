@@ -23,7 +23,7 @@ class AddButtonToSpaceCenter:
         l, t, w, h = sp.top.glyphLineAfterInput.getPosSize()
         sp.top.glyphLineAfterInput.setPosSize((l - 37, t, w, h))
 
-        sp.myButton = Button((-134, 10, 33, 22), "CASE", callback=self.spaceCase, sizeStyle="small")
+        sp.myButton = Button((-134, 10, 33, 22), "OK", callback=self.spaceCase, sizeStyle="small")
     
     def spaceCase(self, sender):
         
